@@ -4,11 +4,16 @@ html, body{
     display: flex;
     width: 100%;
     flex-direction: column;
+    background-image: url(../images/font.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat; 
+  
 }
 
 /*Titulo-cabecera*/
 .container{
-    position: relative;
+    /*position: relative;*/
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -69,28 +74,35 @@ html, body{
     border: 1px solid pink;
     box-shadow: 4px 4px 14px 0px rgba(19, 111, 216, 0.30)
 }
+@media
 
 
 /*Section Giros*/
-#giros{
+.giros{
     display: flex;
     width: 99%;
-    height: min-content;
+    height: max-content;
     justify-content: space-around;
-    border: 1px solid blueviolet;
+   /* border: 1px solid blueviolet;*/
 }
-.card{
+.card2{
     display: flex;
-    width: 160px;
+    width: 140px;
     height: 160px;
     align-items: center;
     justify-content: center;
     text-align: center;
+    justify-self: center;
+    align-self: center; 
     background-color: skyblue;
     margin: 20px;
+    transition: transform 3s;
 }
-.transiciones{
+
+.transiciones, .giros{
+    overflow-x: hidden;
     display: grid;
+    position: sticky;
     width: 99%;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-content: center;
@@ -98,12 +110,12 @@ html, body{
     grid-template-rows: auto;
     column-gap: 10px;
     row-gap: 15px; 
-    border: 1px solid sandybrown;
+   /* border: 1px solid sandybrown;*/
 }
-.card2{
+.card2, img{
     display: flex;
-    width: 160px;
-    height: 160px;
+    width: 180px;
+    height: 180px;
     align-items: center;
     justify-content: center;
     justify-self: center;
@@ -111,14 +123,17 @@ html, body{
     text-align: center;
     background-color: skyblue;
     margin: 20px; 
+    border-radius: 50%;
 }
+
+
 @media screen and (min-width: 421px) and (max-width: 800px){
-    .transiciones{
+    .transiciones, .giros, .Menu{
         grid-template-columns: 1fr 1fr;
     }
 }
 @media screen and (min-width: 375px) and (max-width: 420px){
-    .transiciones{
+    .transiciones, .giros, .Menu{
         grid-template-columns: 1fr;
     }
 }
@@ -220,5 +235,135 @@ html, body{
     }
 }
 
+/*giro completo*/
+.Giro_completo:hover{
+    transform: rotate(360deg);
+}
 
+.Giro_completo_left:hover{
+     transform: rotate(-360deg);
+}
+.Medio_giro:hover{
+    transform: rotate(180deg);
+}
+
+.Medio_giro_left:hover{
+     transform: rotate(-180deg);
+}
+
+
+/*giro infinito*/
+@media /*(prefers-reduced-motion: no-preference)*/ {
+  .Giro_infinito {
+    animation: Giro_infinito infinite 4s linear;
+  }
+}
+@keyframes Giro_infinito {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/*transition*/
+
+@keyframes llegadaDerecha{
+     0% {
+        opacity: 0;
+        transform: translateX(1000px);
+    }
+    25%{
+         opacity: 0.8;
+        transform: translateX(-80px);
+    }
+    75%{
+         opacity: 0.9;
+        transform: translateX(15px);
+    }
+    100%{
+         opacity: 1;
+        transform: translateX(0px);
+    }
+}
+.slideRigth{
+    animation-name: llegadaDerecha;
+    animation-duration: 4s;
+}
+
+
+@keyframes llegadaIzquierda{
+     0% {
+        opacity: 0;
+        transform: translateX(-1000px);
+    }
+    25%{
+         opacity: 0.8;
+        transform: translateX(80px);
+    }
+    75%{
+         opacity: 0.9;
+        transform: translateX(15px);
+    }
+    100%{
+         opacity: 1;
+        transform: translateX(0px);
+    }
+}
+.slideLeft{
+    animation-name: llegadaIzquierda;
+    animation-duration: 4s;
+}
+
+
+
+@keyframes llegadaArriba{
+     0% {
+        opacity: 0;
+        transform: translatey(-1000px);
+    }
+    25%{
+         opacity: 0.8;
+        transform: translatey(80px);
+    }
+    75%{
+         opacity: 0.9;
+        transform: translatey(15px);
+    }
+    100%{
+         opacity: 1;
+        transform: translatey(0px);
+    }
+}
+.slideTop{
+    animation-name: llegadaArriba;
+    animation-duration: 6s;
+}
+
+
+
+@keyframes llegadaAbajo{
+     0% {
+        opacity: 0;
+        transform: translatey(1000px);
+    }
+    25%{
+         opacity: 0.8;
+        transform: translatey(-80px);
+    }
+    75%{
+         opacity: 0.9;
+        transform: translatey(15px);
+    }
+    100%{
+         opacity: 1;
+        transform: translatey(0px);
+    }
+}
+.slideBotton{
+    animation-name: llegadaAbajo;
+    animation-duration: 8s;
+}
 
