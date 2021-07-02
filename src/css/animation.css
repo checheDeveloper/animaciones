@@ -1,19 +1,18 @@
 html, body{
+    cursor: url(../images/cursor.png), auto;
+    /*background: transparent;
+    border: none;*/
     margin: 0;
     padding: 0;
     display: flex;
     width: 100%;
     flex-direction: column;
-    background-image: url(../images/font.jpg);
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat; 
+    background-color: #660F48FF; 
   
 }
 
 /*Titulo-cabecera*/
 .container{
-    /*position: relative;*/
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -56,7 +55,7 @@ html, body{
     padding-inline-start: 0;
 }
 .Menu ul li{
-    background-color: rgb(133, 26, 90); 
+    background-color: rgb(255, 0, 110); 
     display: flex;
     align-items: center;
     list-style: none;
@@ -69,17 +68,24 @@ html, body{
     border-radius: 20px;
     transition: border 2s, background-color 2s, box-shadow 1s;
 }
+.Menu a{
+    color: black;
+    text-decoration: none;
+    font-weight: 400;
+}
 .Menu ul li:hover{
     background-color: rgb(117, 172, 62);
     border: 1px solid pink;
     box-shadow: 4px 4px 14px 0px rgba(19, 111, 216, 0.30)
 }
-@media
+ h1{
+    font-size: 50px;
+ }
 
 
 /*Section Giros*/
 .giros{
-    display: flex;
+    display: block;
     width: 99%;
     height: max-content;
     justify-content: space-around;
@@ -99,8 +105,8 @@ html, body{
     transition: transform 3s;
 }
 
-.transiciones, .giros{
-    overflow-x: hidden;
+.transiciones, .giros, .zoom{
+   overflow-x: hidden;
     display: grid;
     position: sticky;
     width: 99%;
@@ -110,7 +116,6 @@ html, body{
     grid-template-rows: auto;
     column-gap: 10px;
     row-gap: 15px; 
-   /* border: 1px solid sandybrown;*/
 }
 .card2, img{
     display: flex;
@@ -128,74 +133,18 @@ html, body{
 
 
 @media screen and (min-width: 421px) and (max-width: 800px){
-    .transiciones, .giros, .Menu{
+    .transiciones, .giros, .Menu ul{
         grid-template-columns: 1fr 1fr;
     }
 }
 @media screen and (min-width: 375px) and (max-width: 420px){
-    .transiciones, .giros, .Menu{
+    .transiciones, .giros, .Menu ul{
         grid-template-columns: 1fr;
     }
 }
+ 
 
-
-/*Cubos*/
-.cubo-p{
-    display: flex;
-    width: 200px;
-    height: 200px;
-    background-color: aqua;
-    animation: ease-in-out;
-    animation-name: slidein; 
-    animation-duration: 3s;
-    justify-content: center;
-    font-size: 40px;
-    align-items: flex-start;
-}
-.cubo1{
-    transition: width 2s, height 2s, background-color 2s, transform 5s, opacity 6s;
-}
-.cubo2{
-    transition: width 2s, height 2s, background-color 2s, transform 5s;
-}
-.cubo1:hover{
-    background-color: burlywood;
-    width: 280px;
-    height: 280px;
-    transform: scale(0.5);
-    align-items: center;
-    opacity: 0;
-}
-.cubo2{
-    background-color: chartreuse;
-}
-.cubo2:hover{
-    background-color: burlywood;
-    width: 280px;
-    height: 280px;
-    transform: scale(1);
-    align-items: center;
-}
-.michi{
-    display: flex;
-    width: 50%;
-    height: auto;
-    animation: ease-in-out;
-    animation-name: "";
-    animation-iteration-count: infinite;
-    animation-duration: 1s;
-    transition: transform 3s;
-}
-.michi:hover{
-    transform: rotate(360deg);
-}
-.cubo3{
-    animation-iteration-count: infinite;
-    animation-name: temblar;
-    animation-duration: 3s;
-}
-
-/* animacion */
+/* animacion 
 @keyframes slidein{
     from {
         margin-left: 100%;
@@ -253,7 +202,7 @@ html, body{
 
 
 /*giro infinito*/
-@media /*(prefers-reduced-motion: no-preference)*/ {
+@media {
   .Giro_infinito {
     animation: Giro_infinito infinite 4s linear;
   }
@@ -367,3 +316,20 @@ html, body{
     animation-duration: 8s;
 }
 
+/*zoom*/
+.zoom{
+    display: grid;
+    grid-auto-columns: repeat(2, 1fr);
+    border: 1px solid red;
+    width: 50%;
+    padding: 20px 0;
+    column-gap: 10px;
+    row-gap: 15px;
+    animation: scale;
+}
+.zoom_in:hover{
+    transition: scale (1.5);
+}
+.zoom_out:hover{
+    transition: scale (0.3);
+}

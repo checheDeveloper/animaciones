@@ -1,0 +1,88 @@
+html, body{
+    cursor: url(../images/cursor.png), auto;
+    margin: 0;
+    background-image: url(../images/font.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+}
+.container{
+    font-family: 'Lobster', cursive;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+h2{
+	font-size: 50px;
+	color: white;
+}   
+h1{
+    font-family: sans-serif;
+    font-size: 150px;
+    text-align: center;
+    font-weight: 800;
+    color: transparent;
+    background-image: url(https://media1.tenor.com/images/528bb500b7d0cba55047ef0122e7f093/tenor.gif?itemid=14298094);   
+    background-position: center;
+    -webkit-background-clip: text;
+    animation: movie 10s ease-out infinite;
+}
+
+@keyframes movie{
+    0%{
+        opacity: 0;
+        transform: scale(1.2) translateY(-0.75em); 
+    }
+    20%{
+        opacity: 1; 
+    }
+    89%{
+        opacity: 1;
+        transform: scale(1); 
+    }
+    90%{
+        opacity: 0;
+        transform: translateZ(-900em); 
+    }
+
+}
+
+/*animacion button*/
+#btn{
+	width: 200px;
+	height: 100px;
+	margin-bottom: 30px;
+	border-radius: 50%;
+	font-weight: 500;
+	background: url(../images/descarga.jpg);
+	animation-name: boton;
+	animation-duration: 8s;
+    animation-direction: reverse;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+}
+a{
+	text-decoration: none;
+	font-size: 32px;
+	color: white;
+}
+@keyframes boton{
+	20%{
+		background: url(../images/jker.jpg);	
+	}
+	75%{
+        background: url(../images/mad.jpg);
+        transform: translateX(5em);
+    }
+    80%{
+        background: url(../images/descarga.jpg);
+    }
+    100%{
+        transform: translateX(-5em);
+    }
+}
